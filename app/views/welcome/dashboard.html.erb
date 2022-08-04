@@ -5,9 +5,7 @@
  <%end%>
 
 
- <% if user_signed_in?%>
- <%= button_to "logout" , destroy_user_session_path , method: :delete , data: {confirm: "Are you sure you want to logout"}%>
- <%end%>
+ 
 
 <%if current_user.gender == "Male"%>
 <h3> Welcome Mr. <strong><%= current_user.name%></strong> </h3>
