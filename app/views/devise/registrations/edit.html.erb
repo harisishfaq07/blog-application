@@ -16,6 +16,12 @@
     <%= f.label :Update_gender %><br />
     <%= f.select :gender,  ["Male" , "Female"] %>
   </div>
+
+ <div class="field">
+    <%= f.label :Profile_Photo %> <br />
+    <%= f.file_field :image , autocomplete: "current-image" %>
+  </div>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>

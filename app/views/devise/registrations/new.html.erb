@@ -17,6 +17,11 @@
     <%= f.label :Gender %><br />
     <%= f.select :gender, ['Male', 'Female']%>
   </div>
+
+   <div class="field">
+    <%= f.label :Upload_Profile_Photo %><br />
+    <%= f.file_field :image%>
+  </div>
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
