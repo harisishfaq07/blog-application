@@ -1,0 +1,19 @@
+<h1>List of All Users</h1>
+<%count = 0%>
+
+<h4>Total number of Users are: <%= User.count %></h4>
+
+<% User.all.each do |u|%>
+<p>
+
+Id: <%= u.id%><br>
+Name: <%= u.name%><br>
+Email: <%= u.email%><br>
+Gender: <%= u.gender%><br>
+No of Articles: <%=  u.articles.count%><br>
+User Created at: <%= u.created_at%><br>
+
+</p>
+
+<%end%>
+<%= link_to "Back" , :back %>

@@ -1,0 +1,28 @@
+<h1>Create New Article</h1>
+
+
+<%= form_for @article do |a|%>
+<p>
+<strong><%= a.label :Article_Name%></strong>
+<%= a.text_field :name%>
+</p>
+<p>
+<strong><%= a.label :Description%></strong>
+<%= a.text_area :description%>
+</p>
+
+<p> 
+<%= a.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+
+<%= cb.label {cb.check_box + cb.text} %>
+
+<% end %>
+ </p>
+
+
+ 
+<p>
+<%= a.submit "Create Article" %>
+</p>
+<%end%>
+<%= link_to "Back" , :back%>

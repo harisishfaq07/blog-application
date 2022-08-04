@@ -1,0 +1,8 @@
+<h1>Article Details</h1>
+
+<strong>Article Name:</strong> <%= @article.name %><br>
+<strong>Description:</strong>  <%= @article.description %> <br>
+<strong>Categories: </strong>  <% @article.categories.each do |c|%> <%= c.name + ","%> <%end%><br>
+ <strong>Created at</strong>  <%= @article.created_at%><br>
+
+<% if user_signed_in? && (current_user.id == @article.user_id || current_user.admin?) %><%= link_to "Update this Article" , edit_article_path(@article)%> | <%end%> <%= link_to "Back" , :back %>

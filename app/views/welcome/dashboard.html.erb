@@ -1,0 +1,48 @@
+<% if current_user.admin? %>
+<h1>Admin Dashboard</h1>
+ <%else%> 
+ <h1>Users Dashboard</h1>
+ <%end%>
+
+
+ <% if user_signed_in?%>
+ <%= button_to "logout" , destroy_user_session_path , method: :delete , data: {confirm: "Are you sure you want to logout"}%>
+ <%end%>
+
+<%if current_user.gender == "Male"%>
+<h3> Welcome Mr. <strong><%= current_user.name%></strong> </h3>
+<%else%>
+<h3> Welcome Mrs. <strong><%= current_user.name%></strong> </h3>
+<%end%>
+
+
+<small><%= link_to "Update_profile" ,edit_user_registration_path(current_user.id)  %></small><br><br><br>
+
+
+<%= link_to "Create New Article" , new_article_path%> |
+ <%= link_to "View all Articles" , articles_path %> <%if user_signed_in? and current_user.admin?%> | <%= link_to "list of All Users" , users_path %> <%end%> |<br> 
+
+<h3>Article Created By You</h3>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Show</th>
+<th>Edit</th>
+<th>Delete</th>
+</tr>
+
+<% current_user.articles.each do |a|%>
+<tr>
+<td><%= a.name %></td>
+<td><%= a.description %></td>
+<td><%= link_to "Show" , article_path(a.id)%></td>
+<td><%= link_to "Edit" , edit_article_path(a.id)%></td>
+<td><%= link_to "delete" , article_path(a.id) , data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></td>
+</tr>
+<%end%>
+ </table>
