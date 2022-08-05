@@ -1,20 +1,38 @@
+
+<%if !current_user.admin?%>
+<script type="text/javascript">
+    window.location.href="/dashboard"  // put your correct path in a string here
+    alert("Request Sent Successfully")
+  </script>
+
+<%end%>
 <h1>List of All Users</h1>
 <%count = 0%>
-
+<% requestcount = 0%>
 <h4>Total number of Users are: <%= User.count %></h4>
-
+<% User.all.each do |u|%> <%if u.status == "pending"%> <% requestcount +=1 %><%end%><%end%> 
+<h4>Requests for Admin Role: <%= requestcount%></h4> 
 <% User.all.each do |u|%>
 <p>
+<%if u.request == "admin" and u.status == "pending" %>
+<h4><strong>Note:</strong> This User Request for Admin Role</h4>
+<%end%>
 
 Id: <%= u.id%><br>
 Photo: <%= image_tag(u.image , style: "width: 100px")%><br>
 Name: <%= u.name%><br>
 Email: <%= u.email%><br>
 Gender: <%= u.gender%><br>
+Admin: <%= u.admin%><br>
 No of Articles: <%=  u.articles.count%><br>
 User Created at: <%= u.created_at%><br>
-
+<%if u.admin? %>
+<%= link_to "Remove Admin" , edit_user_path(u.id)%>
+<%else%>
+<%= link_to "Make Admin" , edit_user_path(u.id)%>
+<%end%>
 </p>
+
 <hr/>
 <%end%>
 <%= link_to "Back" , :back %>

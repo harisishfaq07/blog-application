@@ -10,7 +10,7 @@
 <%if current_user.gender == "Male"%>
 <h3> Welcome Mr. <strong><%= current_user.name%></strong> </h3>
 <%else%>
-<h3> Welcome Mrs. <strong><%= current_user.name%></strong> </h3>
+<h3> Welcome Miss. <strong><%= current_user.name%></strong> </h3>
 <%end%>
 
 
@@ -18,7 +18,7 @@
 
 
 <%= link_to "Create New Article" , new_article_path%> |
- <%= link_to "View all Articles" , articles_path %> <%if user_signed_in? and current_user.admin?%> | <%= link_to "list of All Users" , users_path %> <%end%> |<br> 
+ <%= link_to "View all Articles" , articles_path %> <%if user_signed_in? and current_user.admin?%> | <%= link_to "list of All Users" , users_path %> <%end%> <%if current_user.admin?%> |<%= link_to "Create New Category" , new_category_path%> <%end%> | <%= link_to "List of Admins" , admins_path %><br> 
 
 <h3>Article Created By You</h3>
 

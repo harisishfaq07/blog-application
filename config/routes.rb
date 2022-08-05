@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
   resources :comments
+  resources :user
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -10,5 +11,6 @@ Rails.application.routes.draw do
   root "welcome#homepage"
   get "dashboard" , to: "welcome#dashboard"
   get "users" , to: "welcome#users"
+  get "admins" , to: "welcome#admins"
   # get "delete/:id" , to: "welcome#destroy"
 end

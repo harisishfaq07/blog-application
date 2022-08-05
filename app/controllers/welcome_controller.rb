@@ -7,6 +7,10 @@ class WelcomeController < ApplicationController
 
     def users
     end
+    def admins
+    end
+
+   
     # def destroy
     #     @user = User.find[params[:id]]
 

@@ -1,0 +1,36 @@
+
+<% if current_user.admin?%>
+
+<h1>Edit User</h1>
+
+<%= form_for @user do |u|%>
+Name: <%= u.text_field :name %><br><br>
+Email: <%= u.email_field :email%><br><br>
+Gender: <%= u.select :gender , ["Male" , "Female"]%><br><br>
+Admin: <%= u.select :admin , ["true","false"]%><br><br>
+Request Role:<%= u.select :status , ["approve" , "reject"]%><br><br>
+<%= u.submit "Update"%>
+
+<%end%><br>
+<%else%>
+<%if @user.status == "reject"%>
+<h3>Your Request has been rejected for somehow reasons , Please try again</h3>
+<h1>Request</h1>
+<%= form_for @user do |u|%>
+<%= u.select :request , ["admin"  , "user"]%> 
+ <%= u.select :status , ["pending"]%> 
+<%= u.submit "Request"%>
+<%end%>
+
+<%elsif @user.status == "approve"%>
+<h3>Congratulations, Your request approved. You are admin now</h3>
+<%else%>
+
+<h1>Request</h1>
+<%= form_for @user do |u|%>
+<%= u.select :request , ["admin"  , "user"]%> 
+<%= u.submit "Request"%>
+<%end%>
+<%end%>
+<%end%>
+<%= link_to "Back" , :back%>
