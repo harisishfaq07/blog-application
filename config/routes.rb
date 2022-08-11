@@ -4,6 +4,13 @@ Rails.application.routes.draw do
   resources :categories
   resources :comments
   resources :user
+
+  resources :news do
+    resources :notes , module: :news
+  end
+  resources :events do
+    resources :notes , module: :events
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

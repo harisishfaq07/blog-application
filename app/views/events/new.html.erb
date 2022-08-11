@@ -1,0 +1,9 @@
+<h1>Add new Event</h1>
+
+
+<%= form_for @event do |e|%>
+
+Title: <%= e.text_field :name%><br>
+Description: <%= e.text_area  :description%><br>
+<%= e.submit "Add"%>
+<%end%>

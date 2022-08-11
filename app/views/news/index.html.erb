@@ -1,0 +1,10 @@
+<h1>Show All News</h1>
+
+
+<% @news.each do |n|%>
+<p>
+Name: <%= n.name%><br>
+Description: <%= n.description %><br>
+<%= link_to "Show" , news_path(n.id) %>
+</p>
+<%end%>

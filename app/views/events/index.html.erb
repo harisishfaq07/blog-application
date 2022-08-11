@@ -1,0 +1,11 @@
+<h1>View all Events</h1>
+
+<% @events.each do |e|%>
+
+<p>
+Name: <%= e.name %><br>
+Description: <%= e.description %><br>
+<%= link_to "show" , event_path(e.id)%>
+</p>
+<hr>
+<%end%>

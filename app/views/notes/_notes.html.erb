@@ -1,0 +1,13 @@
+<h1>All Notes</h1>
+
+<% noteable.notes.each do |u|%>
+
+<p>
+<strong>Note:</strong> <%= u.name %><br>
+<% user = User.find(u.user_id) %>
+Created By:<strong> <%= user.name%> </strong><br>
+Created at: <%= u.created_at%>
+<hr>
+</p>
+
+<%end%>

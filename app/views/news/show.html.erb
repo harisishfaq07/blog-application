@@ -1,0 +1,11 @@
+<h1>News</h1>
+<%= link_to "View All News" , news_index_path%><br>
+
+Name: <%= @new.name%><br>
+Description: <%= @new.description%>
+
+
+
+<%= render partial: "notes/notes" , locals: {noteable: @new}%>
+
+<%= render partial: "notes/form" , locals: {noteable: @new}%>

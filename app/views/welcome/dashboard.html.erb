@@ -18,7 +18,7 @@
 
 
 <%= link_to "Create New Article" , new_article_path%> |
- <%= link_to "View all Articles" , articles_path %> <%if user_signed_in? and current_user.admin?%> | <%= link_to "list of All Users" , users_path %> <%end%> <%if current_user.admin?%> |<%= link_to "Create New Category" , new_category_path%> <%end%> | <%= link_to "List of Admins" , admins_path %><br> 
+ <%= link_to "View all Articles" , articles_path %> | <%= link_to "View all News" , news_index_path %>|<%= link_to "View all Events" , events_path %> <%if user_signed_in? and current_user.admin?%> |<%= link_to "Publish News" , new_news_path %> | <%= link_to "Add Events" , new_event_path %>  <%end%> <%if current_user.admin?%> |<%= link_to "Create New Category" , new_category_path%> | <%= link_to "list of All Users" , users_path %> <%end%> | <%= link_to "List of Admins" , admins_path %><br> 
 
 <h3>Article Created By You</h3>
 

@@ -1,0 +1,14 @@
+<h1>Show Event</h1>
+<%= link_to "show all Events" , events_path %>
+<br>
+
+
+Name: <%= @event.name%><br>
+Description: <%= @event.description %>
+
+<br>
+
+<%= render partial: "notes/notes" , locals: {noteable: @event}%>
+
+<%= render partial: "notes/form" , locals: {noteable: @event}%>
+

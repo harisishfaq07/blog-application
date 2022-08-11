@@ -1,0 +1,8 @@
+
+
+
+<%= form_for [noteable , Note.new ] do |a|%>
+
+Add Note: <%= a.text_field :name %>
+<%= a.submit "Add"%>
+<%end%>

@@ -1,0 +1,10 @@
+<h1>Publish News</h1>
+
+
+<%= form_for @new do |n|%>
+
+Topic: <%=  n.text_field :name %><br>
+Description: <%= n.text_area :description %><br>
+
+<%= n.submit "Publish"%>
+<%end%>
