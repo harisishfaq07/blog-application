@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
       dashboard_path(resource_or_scope)
     end
 
+   
 
     protected
 

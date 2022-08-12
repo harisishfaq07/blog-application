@@ -18,6 +18,7 @@ end
         if @article.save
 
             UserNotificationMailer.create_article(@article).deliver_now
+            
             flash.alert = "Article created successfully"
             redirect_to dashboard_path
         else
