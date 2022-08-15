@@ -8,10 +8,18 @@ class Ability
     user || User.new
 
     if user.admin?
-      can: :manage , :all
+      can :manage , :all
     else
-      can: :manage , Article , user_id = user.id
-      can: :read , :all
+     can :manage , Article do |article|
+      article.user_id = user.id
+     end
+      can :read , Event
+      can :read  , News
+      
+      can :manage , Note do |note|
+        note.user_id = user.id
+       end
+      # can :read , :all
     end
 
 

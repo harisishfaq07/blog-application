@@ -5,5 +5,5 @@
 
 Title: <%= e.text_field :name%><br>
 Description: <%= e.text_area  :description%><br>
-<%= e.submit "Add"%>
+ <% if can?  :create , @event %>  <%= e.submit "Add"%> <%end%>
 <%end%>
