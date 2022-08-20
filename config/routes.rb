@@ -3,7 +3,14 @@ Rails.application.routes.draw do
   resources :articles
   resources :categories
   resources :comments
-  resources :user
+  
+  
+  resources :user do
+collection do
+get :all
+end
+
+  end
 
   resources :news do
     resources :notes , module: :news

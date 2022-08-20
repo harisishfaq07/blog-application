@@ -1,5 +1,7 @@
 class WelcomeController < ApplicationController
     before_action :authenticate_user! , only: [:dashboard]
+
+
     def homepage
     end
     def dashboard
@@ -7,8 +9,11 @@ class WelcomeController < ApplicationController
 
     def users
     end
+
     def admins
     end
+
+    
 
    
     # def destroy
